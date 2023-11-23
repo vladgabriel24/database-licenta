@@ -4,4 +4,5 @@ Aplicația web este un proiect conceput pentru monitorizarea și colectarea metr
 
 ## System Design
 
-![System_design_licenta](https://github.com/vladgabriel24/Licenta/assets/76907292/2e6ee0ab-d96d-40fe-b3b6-b7c040ca6069)
+
+![System_design_licenta](https://github.com/vladgabriel24/Licenta/assets/76907292/d6676a8f-7f3d-49ab-a22f-4c66b455ea31)
