@@ -13,7 +13,7 @@ ALTER TABLE tblPlaciRetea
 ALTER TABLE tblPlaciRetea AUTO_INCREMENT=0;
 
 ALTER TABLE tblPlaciRetea ADD CONSTRAINT fk_sys_retea FOREIGN KEY (sistem)
-    REFERENCES tblSistem(numarSerial) ON DELETE SET NULL ON UPDATE SET NULL;
+    REFERENCES tblSistem(numarSerial) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 -- Tabela tblResurse
@@ -25,4 +25,4 @@ ALTER TABLE tblResurse
 ALTER TABLE tblResurse AUTO_INCREMENT=0;
 
 ALTER TABLE tblResurse ADD CONSTRAINT fk_sys_resurse FOREIGN KEY (sistem)
-    REFERENCES tblSistem(numarSerial) ON DELETE SET NULL ON UPDATE SET NULL;
+    REFERENCES tblSistem(numarSerial) ON DELETE CASCADE ON UPDATE CASCADE;
