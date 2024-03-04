@@ -5,10 +5,10 @@ ALTER TABLE tblSistem ADD PRIMARY KEY(numarSerial);
 
 
 -- Tabela tblPlaciRetea
-ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(idPlacaRetea);
+ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(numePlacaRetea);
 
 ALTER TABLE tblPlaciRetea 
-    MODIFY idPlacaRetea SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT;
+    MODIFY numePlacaRetea SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE tblPlaciRetea AUTO_INCREMENT=0;
 
