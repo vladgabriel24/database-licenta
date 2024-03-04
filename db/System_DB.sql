@@ -9,7 +9,7 @@ CREATE TABLE tblSistem(
 );
 
 CREATE TABLE tblPlaciRetea(
-    numePlacaRetea SMALLINT UNSIGNED NOT NULL, -- Cheia primara
+    numePlacaRetea CHAR(50) NOT NULL, -- Cheia primara
     sistem INT NOT NULL, -- Cheia straina folosita pentru asocierea cu entitatea Sistem
     starePlacaRetea CHAR(5),
     pacheteAruncate INT UNSIGNED,

@@ -7,11 +7,6 @@ ALTER TABLE tblSistem ADD PRIMARY KEY(numarSerial);
 -- Tabela tblPlaciRetea
 ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(numePlacaRetea);
 
-ALTER TABLE tblPlaciRetea 
-    MODIFY numePlacaRetea SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT;
-
-ALTER TABLE tblPlaciRetea AUTO_INCREMENT=0;
-
 ALTER TABLE tblPlaciRetea ADD CONSTRAINT fk_sys_retea FOREIGN KEY (sistem)
     REFERENCES tblSistem(numarSerial) ON DELETE CASCADE ON UPDATE CASCADE;
 
