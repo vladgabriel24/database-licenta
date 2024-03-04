@@ -2,7 +2,8 @@ CREATE DATABASE metriciDB;
 USE metriciDB;
 
 CREATE TABLE tblSistem(
-    numarSerial INT NOT NULL, -- Cheia primara
+    idSistem INT NOT NULL,
+    numarSerial INT NOT NULL,
     modelProcesor CHAR(50),
     producatorSistem CHAR(50),
     modelSistem TEXT
@@ -19,7 +20,7 @@ CREATE TABLE tblPlaciRetea(
 );
 
 CREATE TABLE tblResurse(
-    idResurse SMALLINT UNSIGNED NOT NULL, -- Cheia primara
+    idResurse INT UNSIGNED NOT NULL, -- Cheia primara
     sistem INT NOT NULL, -- Cheia straina folosita pentru asocierea cu entitatea Sistem
     utilizareCPU FLOAT CHECK (utilizareCPU >= 0),
     utilizareDisk FLOAT CHECK (utilizareDisk >= 0),
