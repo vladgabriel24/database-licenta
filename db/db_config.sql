@@ -1,19 +1,38 @@
 USE metriciDB;
 
+-- Tabela tblProducator
+ALTER TABLE tblProducator ADD PRIMARY KEY(idProducator);
+
+-- Tabela tblModel
+ALTER TABLE tblModel ADD PRIMARY KEY(idModel);
+
+-- Tabela tblProcesor
+ALTER TABLE tblProcesor ADD PRIMARY KEY(idProcesor);
+
+
 -- Tabela tblSistem
-ALTER TABLE tblSistem ADD PRIMARY KEY(idSistem);
+ALTER TABLE tblSistem ADD PRIMARY KEY(numarSerial, producatorSistem);
 
-ALTER TABLE tblSistem
-    MODIFY idSistem INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE tblSistem ADD CONSTRAINT fk_producator FOREIGN KEY (producatorSistem)
+    REFERENCES tblProducator(idProducator) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE tblResurse AUTO_INCREMENT=0;
+ALTER TABLE tblSistem ADD CONSTRAINT fk_model FOREIGN KEY (modelSistem)
+    REFERENCES tblModel(idModel) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE tblSistem ADD CONSTRAINT fk_procesor FOREIGN KEY (modelProcesor)
+    REFERENCES tblProcesor(idProcesor) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 -- Tabela tblPlaciRetea
-ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(numePlacaRetea);
+ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(idPlacaRetea);
 
-ALTER TABLE tblPlaciRetea ADD CONSTRAINT fk_sys_retea FOREIGN KEY (sistem)
-    REFERENCES tblSistem(idSistem) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblPlaciRetea
+    MODIFY idPlacaRetea INT UNSIGNED NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE tblPlaciRetea AUTO_INCREMENT=0;
+
+ALTER TABLE tblPlaciRetea ADD CONSTRAINT fk_sistem_retea FOREIGN KEY (modelSistem, numarSerialSistem)
+    REFERENCES tblSistem(numarSerial, producatorSistem) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 -- Tabela tblResurse
@@ -24,5 +43,5 @@ ALTER TABLE tblResurse
 
 ALTER TABLE tblResurse AUTO_INCREMENT=0;
 
-ALTER TABLE tblResurse ADD CONSTRAINT fk_sys_resurse FOREIGN KEY (sistem)
-    REFERENCES tblSistem(idSistem) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tblResurse ADD CONSTRAINT fk_sistem_resurse FOREIGN KEY (modelSistem, numarSerialSistem)
+    REFERENCES tblSistem(numarSerial, producatorSistem) ON DELETE CASCADE ON UPDATE CASCADE;
