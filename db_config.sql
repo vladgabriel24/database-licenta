@@ -3,11 +3,32 @@ USE metriciDB;
 -- Tabela tblProducator
 ALTER TABLE tblProducator ADD PRIMARY KEY(idProducator);
 
+ALTER TABLE tblProducator
+    MODIFY idProducator INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE tblProducator AUTO_INCREMENT=0;
+
+ALTER TABLE tblProducator ADD UNIQUE (numeProducator);
+
 -- Tabela tblModel
 ALTER TABLE tblModel ADD PRIMARY KEY(idModel);
 
+ALTER TABLE tblModel
+    MODIFY idModel INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE tblModel AUTO_INCREMENT=0;
+
+ALTER TABLE tblModel ADD UNIQUE (numeModel);
+
 -- Tabela tblProcesor
 ALTER TABLE tblProcesor ADD PRIMARY KEY(idProcesor);
+
+ALTER TABLE tblProcesor
+    MODIFY idProcesor INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE tblProcesor AUTO_INCREMENT=0;
+
+ALTER TABLE tblProcesor ADD UNIQUE (numeProcesor);
 
 
 -- Tabela tblSistem
@@ -22,6 +43,8 @@ ALTER TABLE tblSistem ADD CONSTRAINT fk_model FOREIGN KEY (modelSistem)
 ALTER TABLE tblSistem ADD CONSTRAINT fk_procesor FOREIGN KEY (modelProcesor)
     REFERENCES tblProcesor(idProcesor) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE tblSistem ADD CONSTRAINT unique_record UNIQUE (numarSerial, producatorSistem, modelSistem, modelProcesor);
+
 
 -- Tabela tblPlaciRetea
 ALTER TABLE tblPlaciRetea ADD PRIMARY KEY(idPlacaRetea);
@@ -32,7 +55,7 @@ ALTER TABLE tblPlaciRetea
 ALTER TABLE tblPlaciRetea AUTO_INCREMENT=0;
 
 ALTER TABLE tblPlaciRetea ADD CONSTRAINT fk_sistem_retea FOREIGN KEY (modelSistem, numarSerialSistem)
-    REFERENCES tblSistem(numarSerial, producatorSistem) ON DELETE CASCADE ON UPDATE CASCADE;
+    REFERENCES tblSistem(producatorSistem, numarSerial) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 -- Tabela tblResurse
@@ -44,4 +67,4 @@ ALTER TABLE tblResurse
 ALTER TABLE tblResurse AUTO_INCREMENT=0;
 
 ALTER TABLE tblResurse ADD CONSTRAINT fk_sistem_resurse FOREIGN KEY (modelSistem, numarSerialSistem)
-    REFERENCES tblSistem(numarSerial, producatorSistem) ON DELETE CASCADE ON UPDATE CASCADE;
+    REFERENCES tblSistem(producatorSistem, numarSerial) ON DELETE CASCADE ON UPDATE CASCADE;

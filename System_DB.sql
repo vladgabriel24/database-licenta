@@ -13,7 +13,7 @@ CREATE TABLE tblModel(
 
 CREATE TABLE tblProcesor(
     idProcesor INT NOT NULL,
-    numeProcesor CHAR(20)
+    numeProcesor CHAR(40)
 );
 
 CREATE TABLE tblSistem(
@@ -22,14 +22,14 @@ CREATE TABLE tblSistem(
     producatorSistem INT NOT NULL,
     modelSistem INT NOT NULL,
     ultimulUpdate TIMESTAMP
-);
+);  
 
 CREATE TABLE tblPlaciRetea(
     idPlacaRetea INT NOT NULL, -- Cheie primara 
     modelSistem INT NOT NULL, -- Cheia straina
     numarSerialSistem INT NOT NULL, -- Cheia straina
     numePlacaRetea CHAR(50) NOT NULL,
-    starePlacaRetea CHAR(5),
+    starePlacaRetea CHAR(10),
     pacheteAruncate INT UNSIGNED,
     dateReceptionate INT UNSIGNED,
     dateTransmise INT UNSIGNED,
@@ -37,7 +37,7 @@ CREATE TABLE tblPlaciRetea(
 );
 
 CREATE TABLE tblResurse(
-    idResurse INT UNSIGNED NOT NULL, -- Cheia primara
+    idResurse INT NOT NULL, -- Cheia primara
     modelSistem INT NOT NULL, -- Cheia straina
     numarSerialSistem INT NOT NULL, -- Cheia straina
     utilizareCPU FLOAT CHECK (utilizareCPU >= 0),
