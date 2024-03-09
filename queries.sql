@@ -21,28 +21,3 @@ VALUES (
         WHERE numeModel = "ThinkSystem"
     )
 );
-
-
-INSERT INTO
-tblPlaciRetea (
-    modelSistem, 
-    numarSerialSistem, 
-    numePlacaRetea, 
-    starePlacaRetea,
-    pacheteAruncate,
-    dateReceptionate,
-    dateTransmise
-)
-VALUES (
-    (
-        SELECT idModel
-        FROM tblModel
-        WHERE numeModel = "ThinkSystem"
-    ),
-    0,
-    ?,
-    ?,
-    ?,
-    ?,
-    ?
-)
