@@ -17,7 +17,7 @@ CREATE TABLE tblProcesor(
 );
 
 CREATE TABLE tblSistem(
-    numarSerial INT NOT NULL,
+    numarSerial CHAR(20) NOT NULL,
     modelProcesor INT NOT NULL,
     producatorSistem INT NOT NULL,
     modelSistem INT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE tblSistem(
 CREATE TABLE tblPlaciRetea(
     idPlacaRetea INT NOT NULL, -- Cheie primara 
     modelSistem INT NOT NULL, -- Cheia straina
-    numarSerialSistem INT NOT NULL, -- Cheia straina
+    numarSerialSistem CHAR(20) NOT NULL, -- Cheia straina
     numePlacaRetea CHAR(50) NOT NULL,
     starePlacaRetea CHAR(10),
     pacheteAruncate INT UNSIGNED,
@@ -39,7 +39,7 @@ CREATE TABLE tblPlaciRetea(
 CREATE TABLE tblResurse(
     idResurse INT NOT NULL, -- Cheia primara
     modelSistem INT NOT NULL, -- Cheia straina
-    numarSerialSistem INT NOT NULL, -- Cheia straina
+    numarSerialSistem CHAR(20) NOT NULL, -- Cheia straina
     utilizareCPU FLOAT CHECK (utilizareCPU >= 0),
     utilizareDisk FLOAT CHECK (utilizareDisk >= 0),
     utilizareRAM FLOAT CHECK (utilizareRAM >= 0),
