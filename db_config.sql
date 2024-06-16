@@ -30,9 +30,18 @@ ALTER TABLE tblProcesor AUTO_INCREMENT=0;
 
 ALTER TABLE tblProcesor ADD UNIQUE (numeProcesor);
 
+-- Tabela tblSerial
+ALTER TABLE tblSerial ADD PRIMARY KEY(idSerial);
+
+ALTER TABLE tblSerial
+    MODIFY idSerial INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE tblSerial AUTO_INCREMENT=0;
+
+ALTER TABLE tblSerial ADD UNIQUE (numarSerial);
+
 
 -- Tabela tblSistem
-ALTER TABLE tblSistem ADD PRIMARY KEY(numarSerial, producatorSistem);
 
 ALTER TABLE tblSistem ADD CONSTRAINT fk_producator FOREIGN KEY (producatorSistem)
     REFERENCES tblProducator(idProducator) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -43,7 +52,10 @@ ALTER TABLE tblSistem ADD CONSTRAINT fk_model FOREIGN KEY (modelSistem)
 ALTER TABLE tblSistem ADD CONSTRAINT fk_procesor FOREIGN KEY (modelProcesor)
     REFERENCES tblProcesor(idProcesor) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE tblSistem ADD CONSTRAINT unique_record UNIQUE (numarSerial, producatorSistem, modelSistem, modelProcesor);
+ALTER TABLE tblSistem ADD CONSTRAINT fk_serial FOREIGN KEY (numarSerial)
+    REFERENCES tblSerial(idSerial) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE tblSistem ADD PRIMARY KEY(numarSerial, producatorSistem);
 
 
 -- Tabela tblPlaciRetea
